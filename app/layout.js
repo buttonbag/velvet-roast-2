@@ -4,6 +4,7 @@ import { getMenu } from 'utils/getMenu';
 import { MainMenu } from 'components/MainMenu';
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { Footer } from 'components/Footer';
 config.autoAddCss = false;
 
 const fontBody = Outfit({
@@ -25,12 +26,18 @@ export default async function RootLayout({ children }) {
   console.log({data});
   
   return (
-    <html lang="en" className={`${fontBody.variable} ${fontHeading.variable}`}>
-      <body className='font-body'>
+    <html lang="en" className={`${fontBody.variable} ${fontHeading.variable} h-full`}>
+      <body className='font-body h-full'>
+
         <MainMenu 
         items={data.mainMenuItems} 
         />
-        {children}
+
+        <main className='flex flex-col min-h-full'>
+          {children}
+        </main>
+        
+        <Footer />
       </body>
     </html>
   )
