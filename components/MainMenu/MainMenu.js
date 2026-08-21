@@ -6,19 +6,16 @@ import { FaBars, FaHamburger, FaHouseUser, FaPlus } from 'react-icons/fa';
 
 export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) => {
   const [mobileNavExpanded, setMobileNavExpanded] = useState(false);
-  // console.log("MENU: ", items);
+  console.log("MENU: ", items);
 
   const handleMenuClick = () => {
     setMobileNavExpanded((prev) => !prev);
   }
 
-  return <><div className="bg-slate-800 sticky top-0 z-50 px-5 text-white">
+  return <><div className="bg-emerald-900 sticky top-0 z-50 px-5 text-white">
     <div className="flex items-center justify-between h-[64px]">
-      <div className="flex items-center py-4 pl-5 text-sky-500">
-        <Link href={"/"}>
-          <FaHouseUser size={30} />
-          <span className="sr-only">Hot Dang Homes</span>
-        </Link>
+      <div className="flex items-center py-4 pl-5 font-heading uppercase">
+        <Link href={"/"}>velvet roast</Link>
       </div>
 
       <nav className="hidden md:flex flex-1 justify-end items-center gap-2" aria-label="Primary navigation">
@@ -38,12 +35,6 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
             </li>
           ))}
         </ul>
-        <div className='ml-3'>
-          <ButtonLink 
-            destination={callToActionDestination} 
-            label={callToActionLabel} 
-          />
-        </div>
       </nav>
 
       <button
@@ -75,12 +66,7 @@ export const MainMenu = ({ items, callToActionLabel, callToActionDestination }) 
           </li>
         ))}
       </ul>
-      <div className='p-4' onClick={handleMenuClick}>
-        <ButtonLink 
-          destination={callToActionDestination} 
-          label={callToActionLabel} 
-        />
-      </div>
+
     </nav>
   </div>
   <div

@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+
+  @theme {
+  --color-espresso-500: oklch(15.22% 0.0083 68.295);
+  --color-roast: oklch(19.722% 0.01256 55.492);
+  --color-bark: oklch(25.41% 0.02233 57.512);
+  --color-amber: oklch(64.568% 0.13922 63.009);
+  --color-amber-light: oklch(73.806% 0.1499 67.029);
+  --color-cream: #f5ede0;
+  --color-parchment: #e8d9c4;
+  --color-muted: #9a8878;
+}
+
+
 @layer components {
   :root {
     --h1: clamp(1.75rem, 4vw + 1rem, 3.75rem);
@@ -20,17 +33,16 @@
   h6.font-heading { font-size: var(--h6); }
   
   .btn {
-    @apply bg-sky-500
-    hover:bg-sky-700 
+    @apply 
+    hover:bg-emerald-600
+    border-emerald-500
+      border
       inline-block 
       my-2 
-      px-4 
-      py-2 
-      uppercase 
-      rounded-md 
       cursor-pointer 
       font-bold
     text-white
+      px-7 py-3.5 text-sm uppercase tracking-widest transition-colors duration-200
   }
 
 }

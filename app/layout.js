@@ -1,4 +1,4 @@
-import {Poppins, Aboreto} from 'next/font/google';
+import {Outfit, Lora} from 'next/font/google';
 import '../styles/globals.css';
 import { getMenu } from 'utils/getMenu';
 import { MainMenu } from 'components/MainMenu';
@@ -6,18 +6,18 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
-const poppins = Poppins({
+const fontBody = Outfit({
   subsets: ['latin'],
   weight: ["400", "700"],
   display: "swap",
-  variable: "--font-poppins"
+  variable: "--font-body"
 })
 
-const aboreto = Aboreto({
+const fontHeading = Lora({
   subsets: ['latin'],
   weight: ["400"],
   display: "swap",
-  variable: "--font-aboreto"
+  variable: "--font-heading"
 })
 
 export default async function RootLayout({ children }) {
@@ -25,12 +25,10 @@ export default async function RootLayout({ children }) {
   console.log({data});
   
   return (
-    <html lang="en" className={`${poppins.variable} ${aboreto.variable}`}>
+    <html lang="en" className={`${fontBody.variable} ${fontHeading.variable}`}>
       <body className='font-body'>
         <MainMenu 
         items={data.mainMenuItems} 
-        callToActionLabel={data.callToActionLabel}
-        callToActionDestination={data.callToActionDestination}
         />
         {children}
       </body>
