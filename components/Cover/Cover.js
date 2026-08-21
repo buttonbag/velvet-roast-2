@@ -9,7 +9,7 @@ export const Cover = ({children, background}) => {
       priority
       className="object-cover mix-blend-soft-light" 
       src={background}/>
-      <div className="max-w-5xl mx-auto z-10">
+      <div className="w-10/12 max-w-8xl mx-auto z-10">
         {children}
       </div>
     </section>;
