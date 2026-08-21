@@ -6,14 +6,6 @@ export const getMenu = async () => {
     query MenuQuery {
       acfOptionsMainMenu {
         mainMenu {
-          callToActionButton {
-            label
-            destination {
-              ... on Page {
-                uri
-              }
-            }
-          }        
           menuItems {
             menuItem {
               destination {
@@ -49,8 +41,8 @@ export const getMenu = async () => {
   const {data} = await response.json();
 
   return {
-      mainMenuItems: mapMenuItems(data.acfOptionsMainMenu.mainMenu.menuItems),
-      callToActionLabel: data.acfOptionsMainMenu.mainMenu.callToActionButton.label,
-      callToActionDestination: data.acfOptionsMainMenu.mainMenu.callToActionButton.destination.uri,
+      mainMenuItems: mapMenuItems(data?.acfOptionsMainMenu.mainMenu.menuItems),
+      // callToActionLabel: data.acfOptionsMainMenu.mainMenu.callToActionButton.label,
+      // callToActionDestination: data.acfOptionsMainMenu.mainMenu.callToActionButton.destination.uri,
   }
 }

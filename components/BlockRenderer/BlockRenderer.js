@@ -45,17 +45,20 @@ export const BlockRenderer = ({blocks}) => {
         formId={block.attributes.data.form_id} />
       }
       case 'acf/ctabutton': {
+        console.log("CTA BUTTON: ", block);
+        
         return <CallToActionButton 
         key={block.id}
         align={block.attributes.data.align}
         destination={block.attributes.data.destination}
         label={block.attributes.data.label}
+        bgColor={block.attributes?.data.bg_color}
         />
       }
       case 'core/paragraph': {
         return <Paragraph 
         key={block.id} 
-        textAlign={block.attributes.style?.typography.textAlign}
+        // textAlign={block.attributes.style?.typography.textAlign}
         content={block.attributes.content}
         textColor={theme[block.attributes.textColor] || block.attributes.style?.color?.text}
         />
@@ -83,17 +86,19 @@ export const BlockRenderer = ({blocks}) => {
         return <Columns 
         key={block.id} 
         isStackedOnMobile={block.attributes.isStackedOnMobile}
-        textColor={theme[block.attributes.textColor] || block.attributes.style?.color?.text}
-        backgroundColor={theme[block.attributes.backgroundColor] || block.attributes.style?.color?.background}>
+        textColor={theme[block.attributes?.textColor] || block.attributes?.style?.color?.text}
+        backgroundColor={theme[block.attributes?.backgroundColor] || block.attributes?.style?.color?.background}>
           <BlockRenderer blocks={block.innerBlocks} />
         </Columns>
       }
       case 'core/column': {
+        console.log("COLUMN: ", block);
+        
         return <Column 
         key={block.id}
         width={block.attributes?.width || ""}
-        textColor={theme[block.attributes.textColor] || block.attributes.style?.color?.text}
-        backgroundColor={theme[block.attributes.backgroundColor] || block.attributes.style?.color?.background}
+        textColor={theme[block.attributes?.textColor] || block.attributes?.style?.color?.text}
+        backgroundColor={theme[block.attributes?.backgroundColor] || block.attributes?.style?.color?.background}
         >
           <BlockRenderer blocks={block.innerBlocks} />
         </Column>
@@ -105,7 +110,6 @@ export const BlockRenderer = ({blocks}) => {
         return <BlockRenderer key={block.id} blocks={block.innerBlocks} />
       }
       case 'acf/calendar': {
-        console.log(block);
         return <Calendar key={block.id} dataUrl={block.attributes.data.data_url} />
       }
       case 'core/image': {

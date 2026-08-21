@@ -9,9 +9,6 @@ export const getPage = async (uri) => {
 
           blocks(postTemplate: false)
         }
-        ... on Property {
-          blocks(postTemplate: false)
-        }
       }
     }`,
     variables: {

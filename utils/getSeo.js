@@ -9,12 +9,6 @@ export const getSeo = async (uri) => {
             title
           }
         }
-        ... on Property {
-          seo {
-            metaDesc
-            title
-          }
-        }
       }
     }`,
     variables: {
