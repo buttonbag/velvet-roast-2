@@ -4,7 +4,9 @@ import { notFound } from "next/navigation";
 import { getSeo } from "utils/getSeo";
 
 export default async function Page({params}) {
-  const data = await getPage(params.slug.join("/"));
+  const {slug} = await params;
+  const path = Array.isArray(slug) ? slug.join("/") : "";
+  const data = await getPage(path);
     if (!data) {
       notFound();
     }
@@ -13,7 +15,9 @@ export default async function Page({params}) {
 }
 
 export async function generateMetadata({params}) {
-  const seo = await getSeo(params.slug.join("/"));
+  const {slug} = await params;
+  const path = Array.isArray(slug) ? slug.join("/") : "";
+  const seo = await getSeo(path);
   return {
     title: seo?.title || "",
     description: seo?.metaDesc || "",

@@ -106,8 +106,7 @@ export const BlockRenderer = ({blocks}) => {
       }
       case 'acf/calendar': {
         console.log(block);
-        
-        return <Calendar key={block.key} dataUrl={block.attributes.data.data_url} />
+        return <Calendar key={block.id} dataUrl={block.attributes.data.data_url} />
       }
       case 'core/image': {
         return <Image 

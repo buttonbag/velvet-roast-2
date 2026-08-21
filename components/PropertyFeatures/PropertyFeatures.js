@@ -7,22 +7,22 @@ export const PropertyFeatures = ({price, bedrooms, bathrooms, parking, petFriend
     <div>
 
     <div>
-      <FontAwesomeIcon icon={faBed} /> {bedrooms} bedrooms
+      {/* <FontAwesomeIcon icon={faBed} /> {bedrooms} bedrooms */}
     </div>
     <div>
-      <FontAwesomeIcon icon={faBath} /> {bathrooms} bathrooms
+      {/* <FontAwesomeIcon icon={faBath} /> {bathrooms} bathrooms */}
     </div>
     <div>
       {!!petFriendly && 
         <>
-          <FontAwesomeIcon icon={faDog} /> {petFriendly} petFriendly
+          {/* <FontAwesomeIcon icon={faDog} /> {petFriendly} petFriendly */}
         </>
       }
     </div>
     <div>
       {!!parking && 
         <>
-          <FontAwesomeIcon icon={faCar} /> {parking} parking
+          {/* <FontAwesomeIcon icon={faCar} /> {parking} parking */}
         </>
       }
     </div>
