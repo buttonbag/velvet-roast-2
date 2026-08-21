@@ -1,8 +1,18 @@
 /** @type {import('next').NextConfig} */
+
+const imagesUrl = process.env.WP_IMAGES_URL;
+
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [process.env.WP_IMAGES_URL],
+    dangerouslyAllowLocalIP: true,
+    remotePatterns: [
+      {
+        protocol: "http",
+        hostname: imagesUrl,
+        pathname: "/**",
+      },
+    ],
   },
 };
 
