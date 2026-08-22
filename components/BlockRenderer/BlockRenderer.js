@@ -4,14 +4,15 @@ import { Columns } from "components/Columns";
 import { Cover } from "components/Cover";
 import { Heading } from "components/Heading";
 import { Paragraph } from "components/Paragraph";
-import { PropertySearch } from "components/PropertySearch";
+import { ProductSearch } from "components/ProductSearch";
 import { FormspreeForm } from "components/FormspreeForm";
 import Image from "next/image";
 import { theme } from "theme";
-import { PropertyFeatures } from "components/PropertyFeatures";
+import { ProductProperties } from "components/ProductProperties";
 import { Gallery } from "components/Gallery";
 import { TickItem } from "components/TickItem";
 import { Calendar } from "components/Calendar";
+import { Product } from "components/Product";
 
 export const BlockRenderer = ({blocks}) => {
   return blocks.map((block) => {
@@ -29,16 +30,27 @@ export const BlockRenderer = ({blocks}) => {
           <BlockRenderer blocks={block.innerBlocks} />
         </TickItem>
       }
-      case 'acf/propertyfeatures': {
-        return <PropertyFeatures 
-        key={block.id} 
-        price={block.attributes.price}
-        bedrooms={block.attributes.bedrooms}
-        bathrooms={block.attributes.bathrooms}
-        parking={block.attributes.parking}
-        petFriendly={block.attributes.pet_friendly}
+      case 'acf/product': {
+        console.log("PRODUCT: ", block);
+        
+        return <Product 
+          key={block.id} 
+          description={block.attributes.data.description}
+          image={block.attributes.data.image}
+          label={block.attributes.data.label}
+          price={block.attributes.data.price}
         />
       }
+      // case 'acf/productsearch': {
+      //   return <ProductSearch key={block.id} />
+      // }
+      // case 'acf/propertyfeatures': {
+      //   return <ProductProperties 
+      //   key={block.id} 
+      //   price={block.attributes.price}
+      //   description={block.attributes.description}
+      //   />
+      // }
       case 'acf/formspreeform': {
         return <FormspreeForm 
         key={block.id} 
@@ -71,9 +83,6 @@ export const BlockRenderer = ({blocks}) => {
         textAlign={block.attributes.style?.typography?.textAlign}
         content={block.attributes.content}
         />
-      }
-      case 'acf/propertysearch': {
-        return <PropertySearch key={block.id} />
       }
       case 'core/cover': {
         return (

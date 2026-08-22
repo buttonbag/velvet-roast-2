@@ -48,15 +48,12 @@ export async function POST(request) {
       },
       body: JSON.stringify({
         query: `
-        query AllPropertiesQuery {
-          properties(where: {offsetPagination: {size: 3, offset: ${((filters.page || 1) -1) * 3}},
+        query AllProductsQuery {
+          products(where: {offsetPagination: {size: 3, offset: ${((filters.page || 1) -1) * 3}},
           metaQuery: {
             relation: AND
             metaArray: [
-              ${petFriendlyFilter}
-              ${parkingFilter}
-              ${minPriceFilter}
-              ${maxPriceFilter}
+              ${price}
             ]
           }
           }) {
@@ -76,11 +73,7 @@ export async function POST(request) {
                   sourceUrl
                 }
               }
-              propertyFeatures {
-                bathrooms
-                bedrooms
-                parking
-                petFriendly
+              productProperties {
                 price
               }
             }
@@ -91,8 +84,8 @@ export async function POST(request) {
 
     const {data} = await response.json();
     return NextResponse.json({
-      total: data.properties.pageInfo.offsetPagination.total,
-      properties: data.properties.nodes,
+      total: data.products.pageInfo.offsetPagination.total,
+      products: data.products.nodes,
     })
 
   } catch (error) {

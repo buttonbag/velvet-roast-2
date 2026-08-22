@@ -6,7 +6,7 @@ import { useRouter, usePathname } from "next/navigation";
 import queryString from "query-string";
 import { Filters } from "./Filters";
 
-export const PropertySearch = () => {
+export const ProductSearch = () => {
   const [properties, setProperties] = useState([]);
   const [totalResults, setTotalResults] = useState(0);
   const pageSize = 3;

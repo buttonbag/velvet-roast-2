@@ -19,7 +19,7 @@ export const getPageStaticProps = async (context) => {
             title
           }
         }
-        ... on Property {
+        ... on Product {
           id
           title
           blocks(postTemplate: false)
