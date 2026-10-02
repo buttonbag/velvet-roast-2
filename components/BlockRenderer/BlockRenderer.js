@@ -113,10 +113,11 @@ export const BlockRenderer = ({blocks}) => {
         </Column>
       }
       case 'core/block': {
-        return <section key={block.id} className="my-10 p-5"><BlockRenderer blocks={block.innerBlocks} /></section>
+        return <div key={block.id} className=""><BlockRenderer blocks={block.innerBlocks} /></div>
       }
       case 'core/group': {
-        return <BlockRenderer key={block.id} blocks={block.innerBlocks} />
+        // return <BlockRenderer key={block.id} blocks={block.innerBlocks} />
+        return <div>group</div>
       }
       case 'acf/calendar': {
         return <Calendar key={block.id} dataUrl={block.attributes.data.data_url} />

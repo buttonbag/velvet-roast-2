@@ -3,7 +3,7 @@ export const Columns = ({isStackedOnMobile, children, textColor, backgroundColor
   const bgColorStyle = backgroundColor ? {backgroundColor} : {}
   return (
     <section className="my-10 md:p-5" style={{...textColorStyle, ...bgColorStyle}}>
-      <div className={`max-w-full mx-auto ${isStackedOnMobile ? "block md:flex" : "flex"}`}>{children}</div>
+      <div className={`max-w-[1440px] mx-auto ${isStackedOnMobile ? "block md:flex" : "flex"}`}>{children}</div>
     </section>
   )
 }
